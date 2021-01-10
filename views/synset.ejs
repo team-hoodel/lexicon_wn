@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title><%= title %></title>
+		</head>
+		<body>
+			<h1><a href="/surface/<%= synset.term %>.html"><%= synset.term %></a></h1>
+			<p><a href="<%= synset.synset_ref %>.html"><%= synset.synset_id %></a> <%= synset.fos %><ul>
+<% for (var i=0; i<synset.glosses.length; i++) { %>
+				<li><%= synset.glosses[i] %></li>
+<% } %>
+			</ul></p>
+<% if (synset.uses) { %>
+			<p>uses<ul>
+  <% for (var i=0; i<synset.uses.length; i++) { %>
+				<li><%= synset.uses[i] %></li>
+  <% } %>
+			</ul><p>
+<% } %>
+<% if (synset.sent_frames) { %>
+			<p>sent_frames<ul>
+  <% for (var i=0; i<synset.sent_frames.length; i++) { %>
+				<li>&quot;<%= synset.sent_frames[i][0] + 'doe' + synset.sent_frames[i][1] %>&quot (<%= synset.term %>)</li>
+  <% } %>
+			</ul><p>
+<% } %>
+			<p>words<ol>
+<% for (var i=0; i<synset.words.length; i++) { %>
+				<li><a href="<%= synset.words[i].word_ref %>.html"><%= synset.words[i].surface %></a></li>
+<% } %>
+			</ol></p>
+<!--
+, 'attribute_of'
+-->
+<% var attribs = [ 'agent', 'agent-of', 'body-part', 'body-part-of', 'by-means-of', 'caused_by', 'causes', 'destination', 'destination-of', 'entailed_by', 'entails', 'event', 'event-of', 'group_with', 'grouped_on', 'attributes', 'has_instances', 'has_members', 'has_parts', 'has_satellites', 'has_substances', 'hypernyms', 'hyponyms', 'instance_of', 'instrument', 'instrument-of', 'location', 'location-of', 'material', 'material-of', 'mechanism-to', 'member_of', 'part-of', 'property', 'property-of', 'referenced_by', 'region_of', 'regions', 'result', 'result-of', 'satellite_of', 'see_also', 'state', 'state-of', 'substance_of', 'topic-of', 'topics', 'undergoer', 'undergoes', 'uses', 'usage-of', 'vehicle', 'vehicle-of' ] %>
+<% for (var i=0; i<attribs.length; i++) { %>
+  <% if (synset[attribs[i]] !== undefined) { %>			<p><%= attribs[i] %><ul>
+    <% for (var j=0; j<synset[attribs[i]].length; j++) { %>
+      <% if (synset[attribs[i]][j].type === 'word') { %>
+				<li><a href="<%= synset[attribs[i]][j].word_ref %>.html"><%= synset[attribs[i]][j].surface %></a> - <%= synset[attribs[i]][j].fos %>, <%= synset[attribs[i]][j].gloss %></li>
+      <% } else { %>
+				<li><a href="<%= synset[attribs[i]][j].synset_ref %>.html"><%= synset[attribs[i]][j].term %></a> - <%= synset[attribs[i]][j].fos %>, <%= synset[attribs[i]][j].gloss %></li>
+      <% } %>
+    <% } %>
+			</ul></p>
+  <% } %>
+<% } %>
+	</body>
+</html>

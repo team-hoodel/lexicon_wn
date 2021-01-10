@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title><%= title %></title>
+	</head>
+	<body>
+		<h1><a href="/surface/<%= word.surface %>.html"><%= word.surface %></a></h1>
+		<p>gloss:<%= word.fos %>(<%= word.w_num %>) <%= word.gloss %></p>
+		<p>synset:<a href="<%= word.synset_ref %>.html"><%= word.synset_id %></a></p>
+<% if (word.uses && word.uses.length) { %>
+		<p>uses<ul>
+  <% for (var i=0; i<word.uses.length; i++) { %>
+			<li><%= word.uses[i] %></li>
+  <% } %>
+		</ul><p>
+<% } %>
+<% if (word.sent_frames) { %>
+  		<p>sent_frames<ul>
+  <% for (var i=0; i<word.sent_frames.length; i++) { %>
+			<li>&quot;<%= word.sent_frames[i][0] + 'doe' + word.sent_frames[i][1] %>&quot; (<%= word.surface %>)</li>
+  <% } %>
+		</ul></p>
+<% } %>
+<% if (word.synonyms && word.synonyms.length) { %>
+		<p>synonyms<% for (var j=0; j<word.synonyms.length; j++) { %>, <a href="<%= word.synonyms[j].word_ref %>.html"><%= word.synonyms[j].surface %></a><% } %>
+		</ul></p>
+<% } %>
+<!--
+glosses
+uses
+, 'grouped_on'
+, 'attribute_of'
+-->
+<% var attribs = [ 'agent', 'agent-of', 'antonyms', 'attributes', 'body-part', 'body-part-of', 'by-means-of', 'caused_by', 'causes', 'derived_adjectives', 'derived_adverbs', 'derived_from', 'derived_nouns', 'derived_verbs', 'derives', 'destination', 'destination-of', 'entailed_by', 'entails', 'event', 'event-of', 'group_with', 'has_instances', 'has_members', 'has_participles', 'has_parts', 'has_satellites', 'has_substances', 'hypernyms', 'hyponyms', 'instance_of', 'instrument', 'instrument-of', 'location', 'location-of', 'material', 'material-of', 'mechanism-to', 'member_of', 'part_of', 'participle_of', 'pertained_from', 'pertains_to', 'property', 'property-of', 'referenced_by', 'region-of', 'regions', 'result', 'result-of', 'satellite-of', 'see-also', 'state', 'state-of', 'substance-of', 'synset', 'syntax', 'topic-of', 'topics', 'undergoer', 'undergoes', 'usage-of', 'uses', 'vehicle', 'vehicle-of,' ] %>
+<% for (var i=0; i<attribs.length; i++) { %>
+  <% if (word[attribs[i]] !== undefined) { %>
+<p><%= attribs[i] %><ul>
+    <% for (var j=0; j<word[attribs[i]].length; j++) { %>
+      <% if (word[attribs[i]][j].type === 'word') { %>
+				<li><a href="<%= word[attribs[i]][j].word_ref %>.html"><%= word[attribs[i]][j].surface %></a> - <%= word[attribs[i]][j].fos %>, <%= word[attribs[i]][j].gloss %></li>
+      <% } else { %>
+				<li><a href="<%= word[attribs[i]][j].synset_ref %>.html"><%= word[attribs[i]][j].term %></a> - <%= word[attribs[i]][j].fos %>, <%= word[attribs[i]][j].gloss %></li>
+      <% } %>
+    <% } %>
+			</ul>
+		</p>
+  <% } %>
+<% } %>
+<!-- 	<pre>
+    		<%= lexicon.stringify(word) %>
+		</pre> -->
+	</body>
+</html>

@@ -1,0 +1,16 @@
+README file for 'morphy'
+
+morphy is a simple reverse morphology tool that relies on an installed WordNet database. 
+
+Given a word and POS, morphy will return base forms.
+
+The Makefile provided looks for the file 'wnlib.a', which is part of the standard WordNet database package,
+in the directory $LIBDIR, which is $WNHOME/src/lib. Generally, after a successful installation of the WordNet
+database package, $WNHOME is set correctly, but you may have to tweak some environment and/or Makefile 
+variables to get the Makefile to work on your computer.
+
+To run morphy, you will have to be sure that morphy can find the WordNet database. Again, after a successful installation
+of WordNet, usually the environment variable is set correctly. If need be, set $WNSEARCHDIR to point to the
+directory that contatins the WordNet database files (*.data and *.index).
+
+

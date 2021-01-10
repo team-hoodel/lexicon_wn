@@ -1,0 +1,15 @@
+<html>
+<head>
+<title><%= title %></title>
+</head>
+<body>
+<h1><%= title %></h1>
+<% if (wordlist.length) { %>
+  <table>
+  <% wordlist.forEach(function(word_obj) { %>
+    <p><a href="<%= word_obj.word_ref %>.html"><%= word_obj.surface %></a> - <%= word_obj.fos %>, <%= word_obj.gloss %></p>
+  <% }) %>
+  </table>
+<% } %>
+</body>
+</html>
