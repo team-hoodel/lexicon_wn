@@ -13,6 +13,8 @@
 
 - [ ] Add an in-memory (sqlite?) wordlist with soundex to help with spelling.
 
+- [ ] Come up with a way of verifying that everything is working as it should.
+
 
 ## API
 
@@ -20,8 +22,7 @@ Many of these calls default to Content-Type: 'application/json'.
 By adding a '.text' suffix, the same (pretty-printed) JSON is returned with Content-Type: text/plain.
 By adding a '.html' suffix, the data is rendered as HTML with clickable hyperlinks.
 
-**/** - Just Creates and returns a v4 UUID
-
+-----
 **/surface/**
 * /surface/happiness
 * /surface/happiness.text
@@ -56,6 +57,7 @@ Returns a list of words that have a surface (spelled like) 'happiness'
 ]
 ```
 
+-----
 **/word/**
 * /word/113987423/1
 * /word/113987423/1.text
@@ -63,6 +65,7 @@ Returns a list of words that have a surface (spelled like) 'happiness'
 
 Returns a deep semantic of a particular word as part of a synset.
 
+-----
 **/synset/**
 * /synset/113987423
 * /synset/113987423.html
