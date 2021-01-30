@@ -7,7 +7,7 @@
 
 - [ ] Add WN and morphy licenses.
 
-- [ ] Debug 'uses' relationship. (and other relationships if they are likewise affected)
+- [x] Debug 'uses' relationship. (and other relationships if they are likewise affected)
 
 - [ ] Put a search form on '/'.
 

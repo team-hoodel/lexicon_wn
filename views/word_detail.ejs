@@ -4,12 +4,12 @@
 	</head>
 	<body>
 		<h1><a href="/surface/<%= word.surface %>.html"><%= word.surface %></a></h1>
-		<p>gloss:<%= word.fos %>(<%= word.w_num %>) <%= word.gloss %></p>
-		<p>synset:<a href="<%= word.synset_ref %>.html"><%= word.synset_id %></a></p>
-<% if (word.uses && word.uses.length) { %>
-		<p>uses<ul>
-  <% for (var i=0; i<word.uses.length; i++) { %>
-			<li><%= word.uses[i] %></li>
+		<p>gloss: <%= word.fos %>(<%= word.w_num %>) <%= word.gloss %></p>
+		<p>synset: <a href="<%= word.synset_ref %>.html"><%= word.synset_id %></a></p>
+<% if (word.usage && word.usage.length) { %>
+		<p>usage<ul>
+  <% for (var i=0; i<word.usage.length; i++) { %>
+			<li><%= word.usage[i] %></li>
   <% } %>
 		</ul><p>
 <% } %>
