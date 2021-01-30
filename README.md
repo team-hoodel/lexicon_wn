@@ -55,6 +55,7 @@ Returns a list of words that have a surface (spelled like) 'happiness'
   }
 ]
 ```
+ 
 
 **/word/**
 * /word/113987423/1

@@ -107,8 +107,6 @@ exports.util = function (req, res) {
                         "r": {}
                        }
 
-//    res.header("Content-Type: text/plain");
-
     for (i=0; i<lexicon.synsets.length; i++) {
         synset = lexicon.synsets[i];
 		for (j=0; j<synset.words.length; j++) {

@@ -31,7 +31,7 @@
 <!--
 , 'attribute_of'
 -->
-<% var attribs = [ 'agent', 'agent-of', 'body-part', 'body-part-of', 'by-means-of', 'caused_by', 'causes', 'destination', 'destination-of', 'entailed_by', 'entails', 'event', 'event-of', 'group_with', 'grouped_on', 'attributes', 'has_instances', 'has_members', 'has_parts', 'has_satellites', 'has_substances', 'hypernyms', 'hyponyms', 'instance_of', 'instrument', 'instrument-of', 'location', 'location-of', 'material', 'material-of', 'mechanism-to', 'member_of', 'part-of', 'property', 'property-of', 'referenced_by', 'region_of', 'regions', 'result', 'result-of', 'satellite_of', 'see_also', 'state', 'state-of', 'substance_of', 'topic-of', 'topics', 'undergoer', 'undergoes', 'uses', 'usage-of', 'vehicle', 'vehicle-of' ] %>
+<% var attribs = [ 'hypernyms', 'hyponyms', 'attributes', 'attribute-of', 'causes', 'caused-by', 'entails', 'entailed-by', 'instance-of', 'has-instances', 'member-of', 'has-members', 'part-of', 'has-parts', 'substance-of', 'has-substances', 'has-satellites', 'satellite-of', 'topics', 'topic-of', 'regions', 'region-of', 'uses', 'usage-of', 'used-by', 'agent', 'agent-of', 'body-part', 'body-part-of', 'by-means-of', 'mechanism-for', 'destination', 'destination-of', 'event', 'event-of', 'instrument', 'instrument-of', 'location', 'location-of', 'material', 'material-of', 'property', 'property-of', 'result', 'result-of', 'state', 'state-of', 'undergoer', 'undergoes', 'vehicle', 'vehicle-of' ] %>
 <% for (var i=0; i<attribs.length; i++) { %>
   <% if (synset[attribs[i]] !== undefined) { %>			<p><%= attribs[i] %><ul>
     <% for (var j=0; j<synset[attribs[i]].length; j++) { %>
