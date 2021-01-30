@@ -40,6 +40,7 @@ build/Release
 # Dependency directories
 node_modules/ejs/
 node_modules/express/
+node_modules/.bin/
 jspm_packages/
 
 # TypeScript v1 declaration files
