@@ -2,8 +2,6 @@
  A node.js application to serve wordnet semantics and morph-syntatic relationships.
  The code forces an 'isa' relationship with the hypernym "hierarchy," proving local access to deep semantics without having to recurse.
 
-## NOTE: After clone, copy or move lexicon.js into node_modules to get this to run.
-
 ## ToDos
 
 - [ ] Add WN and morphy licenses.
