@@ -14,6 +14,8 @@
 
 - [ ] Come up with a way of verifying that everything is working as it should.
 
+- [ ] It looks like Express 4.x has screwed this up. Need to figure out how to use Connect?
+
 
 ## API
 
