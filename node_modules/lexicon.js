@@ -15,7 +15,7 @@ var brief = function ( item ) {
             return undefined;
         }
     } else if (item.surface !== undefined) {
-        return { type: 'word', "surface" : item.surface, "fos": item.fos, "tag_count": item.tag_count, "gloss": item.synset.private.glosses[0], "word_ref": "/word/" + item.synset_id + "/" + item.w_num, "synset_ref": "/synset/" + item.synset_id, "w_num": item.w_num, "reference": item.private.words[0].surface + "." + item.fos + "." + Number(item.private.words[0].tag_count).toString() + "->" + item.surface + "." + item.fos + "." + Number(item.tag_count).toString() };
+        return { type: 'word', "surface" : item.surface, "fos": item.fos, "tag_Count": item.tag_count, "gloss": item.synset.private.glosses[0], "word_ref": "/word/" + item.synset_id + "/" + item.w_num, "synset_ref": "/synset/" + item.synset_id, "w_num": item.w_num, "reference": item.private.words[0].surface + "." + item.fos + "." + Number(item.private.words[0].tag_count).toString() + "->" + item.surface + "." + item.fos + "." + Number(item.tag_count).toString() };
     } else if (item.private !== undefined) {
         return { "type": 'synset', "term" : item.private.words[0].surface, "reference": item.private.words[0].surface + "." + item.fos + "." + Number(item.private.words[0].tag_count).toString(), "fos": item.fos, "gloss": item.private.glosses[0], "synset_ref": "/synset/" + item.synset_id };
     } else {
@@ -63,7 +63,7 @@ module.exports = function (directory, myEmitter) {
                 ["Somebody ", "s to somebody"],
                 ["Somebody ", "s to INFINITIVE"],
                 ["Somebody ", "s whether INFINITIVE"],
-                ["Somebody ", "s somebody into V-ing something"],
+                ["Somebody ", "s somebody into VERB-ing something"],
                 ["Somebody ", "s something with something"],
                 ["Somebody ", "s INFINITIVE"],
                 ["Somebody ", "s VERB-ing"],
@@ -326,14 +326,14 @@ module.exports = function (directory, myEmitter) {
             rentity_anchor,
             rel_map = {
                 hyp: ["hypernyms", "hyponyms"],
-                at: ["attributes", "attribute-of"],
-                cs: ["causes", "caused-by"],
-                ent: ["entails", "entailed-by"],
-                ins: ["instance-of", "has-instances"],
-                mm: ["member-of", "has-members"],
-                mp: ["part-of", "has-parts"],
-                ms: ["substance-of", "has-substances"],
-                sim: ["has-satellites", "satellite-of"]
+                at: ["attributes", "attribute_of"],
+                cs: ["causes", "caused_by"],
+                ent: ["entails", "entailed_by"],
+                ins: ["instance_of", "has_instances"],
+                mm: ["member_of", "has_members"],
+                mp: ["part_of", "has_parts"],
+                ms: ["substance_of", "has_substances"],
+                sim: ["has_satellites", "satellite_of"]
             },
             inherited_down = {
                 "hyponyms" : "No",
@@ -520,9 +520,9 @@ module.exports = function (directory, myEmitter) {
             lentity,
             rentity,
             class_names = {
-                t: ["topics", "topic-of"],
-                r: ["regions", "region-of"],
-                u: ["uses", "usage-of"]
+                t: ["topics", "topic_of"],
+                r: ["regions", "region_of"],
+                u: ["uses", "usage_of"]
             };
 
         result = parse_rel.exec(record);
@@ -625,20 +625,20 @@ module.exports = function (directory, myEmitter) {
             lsynset,
             rsynset,
             sem_map = {
-                'agent': 'agent-of',
-                'body-part': 'body-part-of',
-                'by-means-of': 'mechanism-for',
-                'destination': 'destination-of',
-                'event': 'event-of',
-                'instrument': 'instrument-of',
-                'location': 'location-of',
-                'material': 'material-of',
-                'property': 'property-of',
-                'result': 'result-of',
-                'state': 'state-of',
+                'agent': 'agent_of',
+                'body_part': 'body_part_of',
+                'by_means_of': 'mechanism_for',
+                'destination': 'destination_of',
+                'event': 'event_of',
+                'instrument': 'instrument_of',
+                'location': 'location_of',
+                'material': 'material_of',
+                'property': 'property_of',
+                'result': 'result_of',
+                'state': 'state_of',
                 'undergoer': 'undergoes',
-                'uses': 'used-by',
-                'vehicle': 'vehicle-of'
+                'uses': 'used_by',
+                'vehicle': 'vehicle_of'
             };
         
         result = parse_semlink.exec(record);
