@@ -22,7 +22,7 @@
 ## API
 
 Many of these calls default to Content-Type: 'application/json'.
-By adding a '.text' suffix, the same (pretty-printed) JSON is returned with Content-Type: text/plain.
+By adding a '.text' suffix, the same JSON is returned with Content-Type: text/plain.
 By adding a '.html' suffix, the data is rendered as HTML with clickable hyperlinks.
 
 -----
