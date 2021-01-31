@@ -4,5 +4,44 @@
 </head>
 <body>
 <h1>Welcome to <%= title %></h1>
+<p><%= title %> (a.k.a. lexicon_wn) is a node.js application to serve wordnet semantics and morph-syntatic relationships.</p>
+<p>The code forces an 'isa' relationship with the hypernym "hierarchy," with selective inheritance, providing local access to deep semantics without having to recurse.</p>
+
+<hr width="80%">
+
+<p>API calls default (anything not .html or .text) to Content-Type: 'application/json'.<br/>
+By adding a '.text' suffix, the same JSON is returned with Content-Type: text/plain.<br/>
+By adding a '.html' suffix, the data is rendered as HTML with clickable hyperlinks.</p>
+
+<hr width="80%">
+
+<h2>/surface/</h2>
+<p>Returns a list of words that have a particular surface (is spelled like) e.g., 'happiness'</p>
+<ul>
+<li><a href="/surface/happiness.json">/surface/happiness</a> - returns a list of 'happiness' as application/json</li>
+<li><a href="/surface/happiness.text">/surface/happiness.text</a> - returns a list of 'happiness' as text/plain</li>
+<li><a href="/surface/happiness.html">/surface/happiness.html</a> - renders a list of clickable 'happiness' as text/html</li>
+</ul>
+
+<hr width="80%">
+
+<h2>/word/</h2>
+<p>Returns a deep semantic of a particular word as part of a synset.</p>
+<ul>
+<li><a href="/word/113987423/1.json">/word/113987423/1</a> - returns semantics of happiness (synonym of felicity) as application/json</li>
+<li><a href="/word/113987423/1.text">/word/113987423/1.text</a> - returns semantics of happiness (synonym of felicity) as text/plain</li>
+<li><a href="/word/113987423/1.html">/word/113987423/1.html</a> - returns semantics of happiness (synonym of felicity) as text.html</li>
+</ul>
+
+<hr width="80%">
+
+<h2>/synset/</h2>
+<p>Provides a deep semantic of a synset, and references to incorporated words.</p>
+<ul>
+<li><a href="/synset/113987423.json">/synset/113987423</a> - returns semantics of the synset containing happiness and felicity as application/json</li>
+<li><a href="/synset/113987423.text">/synset/113987423.text</a> - returns semantics of the synset containing happiness and felicity as text/plain</li>
+<li><a href="/synset/113987423.html">/synset/113987423.html</a> - returns semantics of the synset containing happiness and felicity as text.html</li>
+</ul>
+
 </body>
 </html>

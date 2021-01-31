@@ -29,9 +29,9 @@
 <% } %>
 			</ol></p>
 <!--
-, 'attribute_of'
+, 'attribute_of' - removed because it is always populated in both directions.
 -->
-<% var attribs = [ 'hypernyms', 'hyponyms', 'attributes', 'attribute-of', 'causes', 'caused-by', 'entails', 'entailed-by', 'instance-of', 'has-instances', 'member-of', 'has-members', 'part-of', 'has-parts', 'substance-of', 'has-substances', 'has-satellites', 'satellite-of', 'topics', 'topic-of', 'regions', 'region-of', 'uses', 'usage-of', 'used-by', 'agent', 'agent-of', 'body-part', 'body-part-of', 'by-means-of', 'mechanism-for', 'destination', 'destination-of', 'event', 'event-of', 'instrument', 'instrument-of', 'location', 'location-of', 'material', 'material-of', 'property', 'property-of', 'result', 'result-of', 'state', 'state-of', 'undergoer', 'undergoes', 'vehicle', 'vehicle-of' ] %>
+<% var attribs = [ 'hypernyms', 'hyponyms', 'attributes', 'causes', 'caused-by', 'entails', 'entailed-by', 'instance-of', 'has-instances', 'member-of', 'has-members', 'part-of', 'has-parts', 'substance-of', 'has-substances', 'has-satellites', 'satellite-of', 'topics', 'topic-of', 'regions', 'region-of', 'uses', 'usage-of', 'used-by', 'agent', 'agent-of', 'body-part', 'body-part-of', 'by-means-of', 'mechanism-for', 'destination', 'destination-of', 'event', 'event-of', 'instrument', 'instrument-of', 'location', 'location-of', 'material', 'material-of', 'property', 'property-of', 'result', 'result-of', 'state', 'state-of', 'undergoer', 'undergoes', 'vehicle', 'vehicle-of' ] %>
 <% for (var i=0; i<attribs.length; i++) { %>
   <% if (synset[attribs[i]] !== undefined) { %>			<p><%= attribs[i] %><ul>
     <% for (var j=0; j<synset[attribs[i]].length; j++) { %>

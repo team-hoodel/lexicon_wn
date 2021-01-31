@@ -1,6 +1,8 @@
 # lexicon_wn
- A node.js application to serve wordnet semantics and morph-syntatic relationships.
- The code forces an 'isa' relationship with the hypernym "hierarchy," proving local access to deep semantics without having to recurse.
+ A nnode.js application to serve wordnet semantics and morph-syntatic relationships.
+ The code forces an 'isa' relationship with the hypernym "hierarchy," with selective inheritance, providing local access to deep semantics without having to recurse.
+
+## NOTE: npm update is removing lexicon.js from node_modules. Copy it back in after npm update.
 
 ## ToDos
 
@@ -10,11 +12,11 @@
 
 - [ ] Put a search form on '/'.
 
-- [ ] Add an in-memory (sqlite?) wordlist with soundex to help with spelling.
+- [ ] Add an in-memory (sqlite?) wordlist with soundex to help with spelling and morph attributes.
 
 - [ ] Come up with a way of verifying that everything is working as it should.
 
-- [ ] It looks like Express 4.x has screwed this up. Need to figure out how to use Connect?
+- [x] It looks like Express 4.x has screwed this up. Need to figure out how to use Connect?
 
 
 ## API
@@ -70,7 +72,7 @@ Returns a deep semantic of a particular word as part of a synset.
 -----
 **/synset/**
 * /synset/113987423
-* /synset/113987423.html
+* /synset/113987423.text
 * /synset/113987423.html
 
 Provides a deep semantic of a synset, and references to incorporated words.
