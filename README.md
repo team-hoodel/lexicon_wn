@@ -1,5 +1,5 @@
 # lexicon_wn
- A nnode.js application to serve wordnet semantics and morph-syntatic relationships.
+ A nnode.js application to serve wordnet semantics and morphosemantic relationships.
  The code forces an 'isa' relationship with the hypernym "hierarchy," with selective inheritance, providing local access to deep semantics without having to recurse.
 
 ## NOTE: npm update is removing lexicon.js from node_modules. Copy it back in after npm update.
@@ -78,3 +78,6 @@ Returns a deep semantic of a particular word as part of a synset.
 Provides a deep semantic of a synset, and references to incorporated words.
 
 
+## WordNet
+Princeton University "About WordNet." [WordNet](https://wordnet.princeton.edu). Princeton University. 2010. 
+See also: [morphosemantic-links](http://wordnetcode.princeton.edu/standoff-files/morphosemantic-links.xls)
