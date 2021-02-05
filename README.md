@@ -80,4 +80,5 @@ Provides a deep semantic of a synset, and references to incorporated words.
 
 ## WordNet
 Princeton University "About WordNet." [WordNet](https://wordnet.princeton.edu). Princeton University. 2010. 
-See also: [morphosemantic-links](http://wordnetcode.princeton.edu/standoff-files/morphosemantic-links.xls)
+
+See also: [morphosemantic-links.xls](http://wordnetcode.princeton.edu/standoff-files/morphosemantic-links.xls)
