@@ -1,8 +1,16 @@
 # lexicon_wn
+
  A nnode.js application to serve wordnet semantics and morphosemantic relationships.
  The code forces an 'isa' relationship with the hypernym "hierarchy," with selective inheritance, providing local access to deep semantics without having to recurse.
 
-## NOTE: npm update is removing lexicon.js from node_modules. Copy it back in after npm update.
+## Inheritance
+
+In Lexi, inheritance of synsets is straight forward. As WordNet is not a strict hierarchy, a design decision was made to, more or less, choose a random hypernym if there is more than one. Some attributes do not inherit down, and are explicitly listed in the code. Words inherit from a private flavor of its synset. 
+![Image Lexi Inheritance](Lexi_Inheritance.png)
+
+## License
+Copyright (C) 2019 - 2021, Kurt K. Christensen
+I haven't worked out the details yet, but I intend to make this code freely available, but please acknowledge where you got it from. More to come.
 
 ## ToDos
 
@@ -18,6 +26,8 @@
 
 - [x] It looks like Express 4.x has screwed this up. Need to figure out how to use Connect?
 
+
+## NOTE: npm update is removing lexicon.js from node_modules. Copy it back in after npm update.
 
 ## API
 
@@ -78,7 +88,7 @@ Returns a deep semantic of a particular word as part of a synset.
 Provides a deep semantic of a synset, and references to incorporated words.
 
 
-## WordNet
+## WordNet Citation
 Princeton University "About WordNet." [WordNet](https://wordnet.princeton.edu). Princeton University. 2010. 
 
 See also: [morphosemantic-links.xls](http://wordnetcode.princeton.edu/standoff-files/morphosemantic-links.xls)
