@@ -10,6 +10,7 @@ In Lexi, inheritance of synsets is straight forward. As WordNet is not a strict 
 
 ## License
 Copyright (C) 2019 - 2021, Kurt K. Christensen
+
 I haven't worked out the details yet, but I intend to make this code freely available, but please acknowledge where you got it from. More to come.
 
 ## ToDos
