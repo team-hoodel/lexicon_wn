@@ -94,7 +94,7 @@ module.exports = function (directory, myEmitter) {
                 return this.word_map["_" + surface.toLowerCase()];
             },
             surfaceService: function (surface) {
-                var wordlist = lexicon.word_map['_' + surface.toLowerCase()],
+                var wordlist = this.word_map['_' + surface.toLowerCase()],
                     jsonlist = [], i, briefword;
                 if (wordlist) {
                     for (i=0; i<wordlist.length; i++) {
@@ -127,11 +127,17 @@ module.exports = function (directory, myEmitter) {
                             if (attrib === 'sent_frames') {
                                 returnObject.sent_frames = [];
                                 for (i=0; i< word.sent_frames.length; i++) {
-                                    frame_parts = lexicon.sentence_frames[word.sent_frames[i]-1];
+                                    frame_parts = this.sentence_frames[word.sent_frames[i]-1];
                                      returnObject.sent_frames.push(frame_parts); // [0] + returnObject.surface + frame_parts[1]);
                                 }
                             } else {
-                                returnObject[attrib] = brief(word[attrib]);
+								if ( word.hasOwnProperty(attrib) && Array.isArray(word[attrib]) && Array.isArray(word.synset.private[attrib]) ) {
+									var propVals = word[attrib].concat(word.synset.private[attrib]);
+									returnObject[attrib] = brief(propVals);
+								}
+								else {
+	                                returnObject[attrib] = brief(word[attrib]);
+								}
     
                             }
                         }
@@ -156,7 +162,7 @@ module.exports = function (directory, myEmitter) {
                             if (attrib === 'sent_frames') {
                                 returnObject.sent_frames = [];
                                 for (i=0; i< synset.sent_frames.length; i++) {
-                                    frame_parts = lexicon.sentence_frames[synset.sent_frames[i]-1];
+                                    frame_parts = this.sentence_frames[synset.sent_frames[i]-1];
                                    returnObject.sent_frames.push(frame_parts); // [0] + synset.private.words[0].surface + frame_parts[1]);
                                 }
                             } else {
@@ -238,7 +244,7 @@ module.exports = function (directory, myEmitter) {
                         gloss_list.push(gloss_entry);
                     }
                 }
-                semantic_id = lexicon.synsets.length;
+                semantic_id = lexicon.synsets.length;  // ????????????????????
                 lexicon.synset_map[synset_id] = semantic_id;
                 new_synset = {
                     synset_id: synset_id,
@@ -248,6 +254,7 @@ module.exports = function (directory, myEmitter) {
                 new_synset.private['usage'] = use_list;
                 new_synset.private['words'] = [];
                 lexicon.synsets[semantic_id] = new_synset;
+//                this.synsets[semantic_id] = new_synset;
             } else {
                 console.log ("wn_g.pl repeated " + record);
             }
@@ -889,6 +896,7 @@ module.exports = function (directory, myEmitter) {
     function load_end() {
         var synset,
             max_sid = lexicon.synsets.length,
+//            max_sid = this.synsets.length,
 //            hypercount,
             max_wnum,
             i,
@@ -899,6 +907,12 @@ module.exports = function (directory, myEmitter) {
         console.log('Setting prototype inheritance.');
         for (i = 0; i < max_sid; i += 1) {
             synset = lexicon.synsets[i];
+			try {
+				inherit(synset.private, synset);
+			} catch (err) {
+				console.log("Error trying to set __proto__ for synsets[" + i + "].private. " + err);
+			}
+//            synset = this.synsets[i];
             if (synset.hasOwnProperty("hypernyms")) {
 //                hypercount = synset.hypernyms.length;
 //                if (hypercount === 1) {

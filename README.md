@@ -1,6 +1,6 @@
 # lexicon_wn
 
- A nnode.js application to serve wordnet semantics and morphosemantic relationships.
+ A node.js application to serve wordnet semantics and morphosemantic relationships.
  The code forces an 'isa' relationship with the hypernym "hierarchy," with selective inheritance, providing local access to deep semantics without having to recurse.
 
 ## Inheritance
@@ -15,7 +15,7 @@ I haven't worked out the details yet, but I intend to make this code freely avai
 
 ## ToDos
 
-- [ ] Add WN and morphy licenses.
+- [x] Add WN and morphy licenses.
 
 - [x] Debug 'uses' relationship. (and other relationships if they are likewise affected)
 
@@ -26,6 +26,8 @@ I haven't worked out the details yet, but I intend to make this code freely avai
 - [ ] Come up with a way of verifying that everything is working as it should.
 
 - [x] It looks like Express 4.x has screwed this up. Need to figure out how to use Connect?
+
+- [ ] Add commentary to lexicon's methods to help decypher what each one is trying to do.
 
 
 ## NOTE: npm update is removing lexicon.js from node_modules. Copy it back in after npm update.
